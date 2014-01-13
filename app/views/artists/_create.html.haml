@@ -1,0 +1,12 @@
+#add-artist.modal.fade{role: "dialog"}
+  = simple_form_for @artist, url: artists_path, :html => {:method => :post, :multipart => true, :class => 'form-horizontal' } do |f|
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %a.close{"data-dismiss" => "modal"} ×
+          %h4 Add Artist
+        .modal-body
+          = render partial: "form", locals: {f: f}
+        .modal-footer
+          = f.submit "Create", :class => "btn btn-primary"
+          %a.btn.btn-default{"data-dismiss" => "modal", href: "#"} Cancel
